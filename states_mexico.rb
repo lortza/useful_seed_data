@@ -40,3 +40,13 @@ states = [
 states.each do |state|
   State.find_or_create_by!(abbreviation: state[:conventional] ){ |s| s.name = state[:name] }
 end
+
+# Example of a larger block if you want all of the data
+states.each do |state|
+  State.find_or_create_by!(abbreviation: state[:conventional] ) do |s|
+    s.name = state[:name]
+    s.two_letter = state[:two_letter]
+    s.three_letter = state[:three_letter]
+  end
+end
+
