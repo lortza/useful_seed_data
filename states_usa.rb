@@ -1,6 +1,6 @@
 # US STATES --------------------
 
-state_data = [
+states = [
   {name: 'Alabama', abbv: 'AL'},
   {name: 'Alaska', abbv: 'AK'},
   {name: 'Arizona', abbv: 'AZ'},
@@ -54,7 +54,7 @@ state_data = [
 ]
 
 # Customize this part for your specific table needs
-state_data.each do |state|
+states.each do |state|
   State.find_or_create_by!(abbreviation: state[:abbv] ){ |s| s.name = state[:name] }
 end
 
